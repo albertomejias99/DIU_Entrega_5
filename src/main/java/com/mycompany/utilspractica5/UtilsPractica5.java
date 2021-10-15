@@ -19,13 +19,16 @@ public class UtilsPractica5 {
         if (c_blue) mask = mask | 0x0000FF;
         
         BufferedImage img_copy = clonarImagen(img);
+        System.out.println("Height: " + img.getHeight() + " " + "Width: " + img.getWidth());
+        System.out.println("Mask: " + Integer.toHexString(mask));
         for (int j=0;j<img.getHeight();j++){
             for (int i=0;i<img.getWidth();i++){
                 img_copy.setRGB(i, j, mask & img.getRGB(i, j));
+                //System.out.print("(" + i + "," + j +"): " + img.getRGB(i, j) + "\t");
             }
+            //System.out.println("");
         }
         return img_copy;
     }
-    
     
 }
