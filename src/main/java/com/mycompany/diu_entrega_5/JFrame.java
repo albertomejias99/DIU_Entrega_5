@@ -217,6 +217,10 @@ public class JFrame extends javax.swing.JFrame {
             rojo = true;
             rojoCb.setSelected(true);
         }
+        if (rojoCb.isSelected() && verdeCb.isSelected() && azulCb.isSelected()) {
+            rojo = true;
+            todosCb.setSelected(true);
+        }
         System.out.println("Rojo: " + rojo + " " + "Verde: " + verde + " " + "Azul: " + azul);
         lienzo.setNewImagen(UtilsPractica5.seleccionarComponentes(lienzo.getImagen(), rojo, verde, azul));
         lienzo.repaint();
@@ -233,6 +237,10 @@ public class JFrame extends javax.swing.JFrame {
             verde = true;
             verdeCb.setSelected(true);
         }
+        if (rojoCb.isSelected() && verdeCb.isSelected() && azulCb.isSelected()) {
+            rojo = true;
+            todosCb.setSelected(true);
+        }
         System.out.println("Rojo: " + rojo + " " + "Verde: " + verde + " " + "Azul: " + azul);
         lienzo.setNewImagen(UtilsPractica5.seleccionarComponentes(lienzo.getImagen(), rojo, verde, azul));
         lienzo.repaint();
@@ -248,6 +256,10 @@ public class JFrame extends javax.swing.JFrame {
         if (!rojoCb.isSelected() && !verdeCb.isSelected() && !azulCb.isSelected()) {
             azul = true;
             azulCb.setSelected(true);
+        }
+        if (rojoCb.isSelected() && verdeCb.isSelected() && azulCb.isSelected()) {
+            rojo = true;
+            todosCb.setSelected(true);
         }
         System.out.println("Rojo: " + rojo + " " + "Verde: " + verde + " " + "Azul: " + azul);
         lienzo.setNewImagen(UtilsPractica5.seleccionarComponentes(lienzo.getImagen(), rojo, verde, azul));
