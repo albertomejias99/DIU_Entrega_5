@@ -21,7 +21,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.mycompany.diu_entrega_4.Main</mainClass>
+                            <mainClass>com.mycompany.diu_entrega_5.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
