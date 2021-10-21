@@ -14,7 +14,7 @@ public class Logo extends JPanel{
 
     public Logo() {
         try {
-            logo = ImageIO.read(new File("src/main/java/images/logo_100.png"));
+            logo = ImageIO.read(new File("./src/main/java/images/logo_100.png"));
         } catch (IOException ex) {}
     }
     

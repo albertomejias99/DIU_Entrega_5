@@ -32,7 +32,7 @@ public class Lienzo extends JPanel {
 
     public Lienzo() {
         try {
-            imagen = ImageIO.read(new File("src/main/java/images/fondos.jpg"));
+            imagen = ImageIO.read(new File("./src/main/java/images/fondos.jpg"));
             newImagen = imagen;
         } catch (IOException ex) {
 
@@ -42,7 +42,7 @@ public class Lienzo extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(newImagen.getScaledInstance(this.getPreferredSize().width, this.getPreferredSize().height, Image.SCALE_SMOOTH), 0, 0, null);
+        g.drawImage(imageToBufferedImage(newImagen.getScaledInstance(this.getPreferredSize().width, this.getPreferredSize().height, Image.SCALE_SMOOTH)), 0, 0, null);
     }
 
     private static BufferedImage imageToBufferedImage(Image im) {
