@@ -201,6 +201,7 @@ public class JFrame extends javax.swing.JFrame {
             verde = true;
             azul = true;
         }
+        if (rojoCb.isSelected() && verdeCb.isSelected() && azulCb.isSelected())todosCb.setSelected(true);
         System.out.println("Rojo: " + rojo + " " + "Verde: " + verde + " " + "Azul: " + azul);
         lienzo.setNewImagen(UtilsPractica5.seleccionarComponentes(lienzo.getImagen(), rojo, verde, azul));
         lienzo.repaint();
