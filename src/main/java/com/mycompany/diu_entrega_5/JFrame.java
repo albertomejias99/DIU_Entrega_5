@@ -9,6 +9,7 @@ import com.mycompany.utilspractica5.UtilsPractica5;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 /**
@@ -28,9 +29,6 @@ public class JFrame extends javax.swing.JFrame {
      */
     public JFrame() {
         initComponents();
-        this.jFrameWidth = this.getPreferredSize().width;
-        this.jFrameHeight = this.getPreferredSize().height;
-        buttonsPanel.setLocation(this.jFrameWidth / 2 - buttonsPanel.getPreferredSize().width / 2, this.jFrameHeight / 2 - buttonsPanel.getPreferredSize().height / 2);
         initButtons();
     }
 
@@ -54,9 +52,10 @@ public class JFrame extends javax.swing.JFrame {
         abIzqRb = new javax.swing.JRadioButton();
         abDerRb = new javax.swing.JRadioButton();
         lienzo = new com.mycompany.diu_entrega_5.Lienzo();
+        logo = new com.mycompany.diu_entrega_5.Logo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(992, 558));
+        setPreferredSize(new java.awt.Dimension(995, 600));
         getContentPane().setLayout(null);
 
         buttonsPanel.setPreferredSize(new java.awt.Dimension(164, 100));
@@ -165,31 +164,50 @@ public class JFrame extends javax.swing.JFrame {
                 .addGroup(buttonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(azulCb)
                     .addComponent(abDerRb))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         getContentPane().add(buttonsPanel);
-        buttonsPanel.setBounds(670, 270, 164, 100);
+        buttonsPanel.setBounds(360, 0, 164, 100);
+
+        lienzo.setBackground(new Color (255, 255, 255, 0));
+
+        logo.setBackground(new Color(255,255,255,0));
+
+        javax.swing.GroupLayout logoLayout = new javax.swing.GroupLayout(logo);
+        logo.setLayout(logoLayout);
+        logoLayout.setHorizontalGroup(
+            logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        logoLayout.setVerticalGroup(
+            logoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout lienzoLayout = new javax.swing.GroupLayout(lienzo);
         lienzo.setLayout(lienzoLayout);
         lienzoLayout.setHorizontalGroup(
             lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 220, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lienzoLayout.createSequentialGroup()
+                .addGap(0, 890, Short.MAX_VALUE)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         lienzoLayout.setVerticalGroup(
             lienzoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
+            .addGroup(lienzoLayout.createSequentialGroup()
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 340, Short.MAX_VALUE))
         );
 
         getContentPane().add(lienzo);
-        lienzo.setBounds(0, 0, 220, 240);
+        lienzo.setBounds(0, 120, 990, 440);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void abIzqRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abIzqRbActionPerformed
-        lienzo.setLocation(0, this.jFrameHeight - lienzo.getHeight());
+        logo.setLocation(0, lienzo.getHeight() - logo.getHeight());
     }//GEN-LAST:event_abIzqRbActionPerformed
 
     private void todosCbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todosCbActionPerformed
@@ -202,7 +220,6 @@ public class JFrame extends javax.swing.JFrame {
             azul = true;
         }
         if (rojoCb.isSelected() && verdeCb.isSelected() && azulCb.isSelected())todosCb.setSelected(true);
-        System.out.println("Rojo: " + rojo + " " + "Verde: " + verde + " " + "Azul: " + azul);
         lienzo.setNewImagen(UtilsPractica5.seleccionarComponentes(lienzo.getImagen(), rojo, verde, azul));
         lienzo.repaint();
     }//GEN-LAST:event_todosCbActionPerformed
@@ -222,7 +239,6 @@ public class JFrame extends javax.swing.JFrame {
             rojo = true;
             todosCb.setSelected(true);
         }
-        System.out.println("Rojo: " + rojo + " " + "Verde: " + verde + " " + "Azul: " + azul);
         lienzo.setNewImagen(UtilsPractica5.seleccionarComponentes(lienzo.getImagen(), rojo, verde, azul));
         lienzo.repaint();
     }//GEN-LAST:event_rojoCbActionPerformed
@@ -242,7 +258,6 @@ public class JFrame extends javax.swing.JFrame {
             rojo = true;
             todosCb.setSelected(true);
         }
-        System.out.println("Rojo: " + rojo + " " + "Verde: " + verde + " " + "Azul: " + azul);
         lienzo.setNewImagen(UtilsPractica5.seleccionarComponentes(lienzo.getImagen(), rojo, verde, azul));
         lienzo.repaint();
     }//GEN-LAST:event_verdeCbActionPerformed
@@ -262,21 +277,20 @@ public class JFrame extends javax.swing.JFrame {
             rojo = true;
             todosCb.setSelected(true);
         }
-        System.out.println("Rojo: " + rojo + " " + "Verde: " + verde + " " + "Azul: " + azul);
         lienzo.setNewImagen(UtilsPractica5.seleccionarComponentes(lienzo.getImagen(), rojo, verde, azul));
         lienzo.repaint();
     }//GEN-LAST:event_azulCbActionPerformed
 
     private void arrIzqRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrIzqRbActionPerformed
-        lienzo.setLocation(0, 0);
+        logo.setLocation(0, 0);
     }//GEN-LAST:event_arrIzqRbActionPerformed
 
     private void arrDerRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrDerRbActionPerformed
-        lienzo.setLocation(this.jFrameWidth - lienzo.getWidth(), 0);
+        logo.setLocation(lienzo.getWidth() - logo.getWidth(), 0);
     }//GEN-LAST:event_arrDerRbActionPerformed
 
     private void abDerRbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_abDerRbActionPerformed
-        lienzo.setLocation(this.jFrameWidth - lienzo.getWidth(), this.jFrameHeight - lienzo.getHeight());
+        logo.setLocation(lienzo.getWidth() - logo.getWidth(), lienzo.getHeight() - logo.getHeight());
     }//GEN-LAST:event_abDerRbActionPerformed
 
 
@@ -288,6 +302,7 @@ public class JFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox azulCb;
     private javax.swing.JPanel buttonsPanel;
     private com.mycompany.diu_entrega_5.Lienzo lienzo;
+    private com.mycompany.diu_entrega_5.Logo logo;
     private javax.swing.ButtonGroup posButtonGroup;
     private javax.swing.JCheckBox rojoCb;
     private javax.swing.JCheckBox todosCb;
@@ -295,7 +310,7 @@ public class JFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void initButtons() {
-        arrIzqRb.setSelected(true);
+        arrDerRb.setSelected(true);
         todosCb.setSelected(true);
         rojoCb.setSelected(true);
         verdeCb.setSelected(true);

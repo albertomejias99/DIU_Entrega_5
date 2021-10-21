@@ -10,8 +10,9 @@ import javax.swing.JPanel;
 
 public class Lienzo extends JPanel {
 
-    private BufferedImage imagen = null;
-    private BufferedImage newImagen = null;
+    private BufferedImage imagen;
+    private BufferedImage newImagen;
+
 
     public BufferedImage getNewImagen() {
         return newImagen;
@@ -27,13 +28,11 @@ public class Lienzo extends JPanel {
 
     public void setImagen(BufferedImage imagen) {
         this.imagen = imagen;
-        System.out.println("Imagen tipo: " + imagen.getType());
     }
 
     public Lienzo() {
         try {
-            imagen = ImageIO.read(new File("src/main/java/images/supermario400.png"));
-            imagen  = imageToBufferedImage(imagen.getScaledInstance(imagen.getWidth()/2, imagen.getHeight()/2, Image.SCALE_SMOOTH));
+            imagen = ImageIO.read(new File("src/main/java/images/fondos.jpg"));
             newImagen = imagen;
         } catch (IOException ex) {
 
@@ -43,7 +42,7 @@ public class Lienzo extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(newImagen, 0, 0, null);
+        g.drawImage(newImagen.getScaledInstance(this.getPreferredSize().width, this.getPreferredSize().height, Image.SCALE_SMOOTH), 0, 0, null);
     }
 
     private static BufferedImage imageToBufferedImage(Image im) {
@@ -53,6 +52,4 @@ public class Lienzo extends JPanel {
         bg.dispose();
         return bi;
     }
-
-
 }
